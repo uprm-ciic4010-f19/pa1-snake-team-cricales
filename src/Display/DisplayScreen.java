@@ -16,6 +16,11 @@ public class DisplayScreen {
     private Canvas canvas;
     private String title;
     private int width, height;
+    
+   //Inicialice la variable para utilizarla para cambiar el color del background
+    private Color Color(Color color) {
+		return color;
+	}
 
     public DisplayScreen(String title, int width, int height){
         this.title = title;
@@ -35,6 +40,7 @@ public class DisplayScreen {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setBackground(Color.black);
+      
 
         try {
             frame.setIconImage(ImageIO.read(new File("res/Sheets/icon.png")));
@@ -47,13 +53,17 @@ public class DisplayScreen {
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
         canvas.setFocusable(false);
-        canvas.setBackground(Color.black);
-
+       
+        //Cambie el color a violeta usando el sistema RGB
+        canvas.setBackground(Color(new Color(128,0,128)));
+ 
         frame.add(canvas);
         frame.pack();
     }
 
-    public Canvas getCanvas(){
+   
+
+	public Canvas getCanvas(){
         return canvas;
     }
 
