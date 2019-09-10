@@ -19,6 +19,8 @@ public class Player {
     public int yCoord;
 
     public int moveCounter;
+    //New Counter
+    public int speedCounter;
 
     public String direction;//is your first name one?
 
@@ -27,18 +29,21 @@ public class Player {
         xCoord = 0;
         yCoord = 0;
         moveCounter = 0;
+      //Inicializando el counter
+        speedCounter = 5;
         direction= "Right";
         justAte = false;
         lenght= 1;
-
+ 
     }
 
     public void tick(){
         moveCounter++;
-        if(moveCounter>=5) {
+        //speedCounter++;
+        if(moveCounter>=speedCounter) {
             checkCollisionAndMove();
            //Velocidad del player
-            moveCounter=3;
+            moveCounter=0;
         }
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
             direction="Up";
@@ -48,6 +53,19 @@ public class Player {
             direction="Left";
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
             direction="Right";
+        }
+      //Hace que cuando precione la letra N se le anada una manzana extra
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
+        	handler.getWorld().body.addLast(new Tail(xCoord, yCoord, handler));
+        }
+        //Hace que al presionars el boton "-" disminuya en velocidad
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
+        	speedCounter++;
+        }
+        //Hace que al presionars el boton "+" aumenta en velocidad
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
+        	speedCounter--;
+        		
         }
 
     }
