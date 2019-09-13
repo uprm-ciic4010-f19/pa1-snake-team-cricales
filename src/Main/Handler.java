@@ -18,7 +18,7 @@ public class Handler {
     public Handler(GameSetUp game){
         this.game = game;
     }
-
+ 
     public int getWidth(){
         return game.getWidth();
     }

@@ -17,10 +17,10 @@ public class WorldOne extends WorldBase{
         //has to be a number bigger than 20 and even
         //Cambie el tamano de los pixeles para que sea 60*60
         GridWidthHeightPixelCount = 60;
-        GridPixelsize = (800/(GridWidthHeightPixelCount));
+        GridPixelsize = (600/(GridWidthHeightPixelCount));
         playerLocation = new Boolean[GridWidthHeightPixelCount][GridWidthHeightPixelCount];
         appleLocation = new Boolean[GridWidthHeightPixelCount][GridWidthHeightPixelCount];
-
+  
     }
 
     @Override
@@ -31,7 +31,7 @@ public class WorldOne extends WorldBase{
             appleOnBoard=true;
             int appleX = new Random().nextInt(handler.getWorld().GridWidthHeightPixelCount-1);
             int appley = new Random().nextInt(handler.getWorld().GridWidthHeightPixelCount-1);
-
+           
             //change coordinates till one is selected in which the player isnt standing
             boolean goodCoordinates=false;
             do{
@@ -42,6 +42,7 @@ public class WorldOne extends WorldBase{
 
             apple = new Apple(handler,appleX,appley);
             appleLocation[appleX][appley]=true;
+           
 
         }
     }

@@ -13,6 +13,7 @@ import javax.swing.*;
 public class DisplayScreen {
 
     private JFrame frame;
+    private JFrame score;
     private Canvas canvas;
     private String title;
     private int width, height;
@@ -26,7 +27,7 @@ public class DisplayScreen {
         this.title = title;
         this.width = width;
         this.height = height;
-
+ 
 
 
         createDisplay();
@@ -53,12 +54,15 @@ public class DisplayScreen {
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
         canvas.setFocusable(false);
-       
+      
         //Cambie el color a violeta usando el sistema RGB
         canvas.setBackground(Color(new Color(128,0,128)));
- 
+        
         frame.add(canvas);
         frame.pack();
+        
+       
+        
     }
 
    

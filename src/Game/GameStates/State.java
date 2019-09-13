@@ -16,12 +16,12 @@ public abstract class State {
     }
 
     public static State getState(){
-        return currentState;
+        return currentState;  
     }
 
     //CLASS
 
-    protected Handler handler;
+    protected Handler handler; 
 
     public State(Handler handler){
         this.handler = handler;
